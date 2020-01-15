@@ -1,11 +1,14 @@
 let username = '';
 let followersCount = 0;
 
+console.log('CONTENT');
+
 function init() {
     username ? fetchData() : console.log('no user')
 };
 
 function setUsername() {
+    console.log('setUsername')
     chrome.storage.sync.get(['insta_username'], function (result) {
         username = result['insta_username'];
         init();

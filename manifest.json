@@ -14,6 +14,7 @@
     "default_icon": "./src/img/logo.png"
   },
   "background": {
+    "persistent": false,
     "scripts": ["background.js"]
   },
   "permissions": ["tabs", "storage", "https://www.instagram.com/*"]
