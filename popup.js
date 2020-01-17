@@ -4,56 +4,42 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('popup');
     const bg = chrome.extension.getBackgroundPage();
 
     init();
-    // init2();
 
     document.getElementById('settings').addEventListener('click', onclickSettings, false);
 
     function init() {
-        console.log('INIT');
-        console.log('BG.username', bg.username);
-        console.log('BG.followersCount', bg.followersCount);
-        console.log('BG.profilePic', bg.profilePic);
-        // validar q bg no sea undefined
         chrome.storage.sync.get(['insta_username'], function (result) {
-            if(bg.username === '' && result.insta_username){
-                // show a loader
-                console.log('NO BG bg.username', bg.username)
-                console.log('insta_username', result.insta_username)
-                callFetch(result.insta_username);
-            } else if(bg.username !== '' && result.insta_username) { 
+            if(!result.insta_username){
+                // means there is no username set
+                requestUser();
+            } else if((result.insta_username && !bg.username) || (result.insta_username && bg.username === ''))
+            {
+                // means bg did not load
+                callFetchWith(result.insta_username);
+            } else {
                 setPopup();
-            } else { 
-                equestUser();
+                callFetch();
             }
         });
     }
 
-    function callFetch(insta_username) {
-        console.log('callFetch')
+    function callFetch() {
         chrome.runtime.sendMessage({
-            type: 'fetchData',
+            type: 'fetchData'
+        });
+    }
+
+    function callFetchWith(insta_username) {
+        chrome.runtime.sendMessage({
+            type: 'fetchDataWith',
             username: insta_username
         });
     }
 
-    function init2(){
-        chrome.storage.sync.get(['insta_username'], function (result) {
-            if(result.insta_username) {
-                chrome.runtime.sendMessage({
-                    type: 'fetchData',
-                    username: result.insta_username
-                });
-            }
-        });
-        
-    }
-
     function setPopup() {
-        console.log('setPopup');
         document.getElementById('popup').style.display = 'grid';
         document.getElementById('new-user').style.display = 'none';
 
@@ -76,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function setCount () {
-        console.log('setCount');
-        console.log('bg', bg);
         document.getElementById('followers_count').innerHTML = `${bg.followersCount} followers`;
     }
 

@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('settings');
-
     let username;
     let profilePic;
     let followersCount;
@@ -12,28 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //TODO create a util file with this function
     function setUsernameOnInput () {
-        console.log('setUsernameOnInput');
         chrome.storage.sync.get(['insta_username'], function (result) {
             if (result.insta_username) document.getElementById('username').value = result.insta_username;
         });
     }
     
     function onClickSave() {
-        console.log('onClickSave');
         username = document.getElementById('username').value;
 
         checkIfAccountExists();
     }
 
     function checkIfAccountExists() {
-        console.log('checkIfAccountExists');
-
         fetch(`http://www.instagram.com/${username}?__a=1`)
             .then(r => r.text())
             .then(result => {
-                console.log('FETCH')
                 result = JSON.parse(result);
-                console.log('result', result);
                 profilePic = result.graphql.user.profile_pic_url
                 followersCount = result.graphql.user.edge_followed_by.count;
 
