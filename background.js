@@ -28,6 +28,7 @@ function fetchData(){
 }
 
 function checkIfFollowersCountChanged(newFollowersCount){
+    console.log('checkIfFollowersCountChanged');
     chrome.storage.sync.get(['insta_followers_count'], function (result) {
         const count = result.insta_followers_count;
         const difference = newFollowersCount - count;
@@ -38,9 +39,9 @@ function checkIfFollowersCountChanged(newFollowersCount){
             chrome.browserAction.setBadgeText({text: `${difference}`})
             chrome.browserAction.setBadgeBackgroundColor({ color:'#e05a3d' });
         } 
-        else {
-             chrome.browserAction.setBadgeText({text: ''})
-        }
+        // else {
+        //      chrome.browserAction.setBadgeText({text: ''})
+        // }
 
         saveFollowersCount(newFollowersCount);
     });
@@ -51,6 +52,7 @@ function saveFollowersCount(followersCount){
 }
 
 function fetchDataWith(username) {
+    console.log('username', username)
     fetch(`http://www.instagram.com/${username}?__a=1`)
         .then(r => r.text())
         .then(result => {
@@ -59,8 +61,8 @@ function fetchDataWith(username) {
             window.profilePic = result.graphql.user.profile_pic_url;
             window.followersCount = result.graphql.user.edge_followed_by.count;
 
-            // checkIfFollowersCountChanged(result.graphql.user.edge_followed_by.count);  
-    });
+            checkIfFollowersCountChanged(result.graphql.user.edge_followed_by.count);  
+        });
 }
 
 chrome.runtime.onStartup.addListener(() => {

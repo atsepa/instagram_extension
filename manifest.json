@@ -1,5 +1,5 @@
 {
-  "name": "Instagram Counter",
+  "name": "Followers Counter",
   "version": "1.0.0",
   "manifest_version": 2,
   "content_scripts": [
@@ -10,7 +10,7 @@
   ],
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "Instagram Counter",
+    "default_title": "Followers Counter",
     "default_icon": "./src/img/logo.png"
   },
   "background": {
