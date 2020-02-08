@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if(!result.insta_username){
                 // means there is no username set
                 requestUser();
-            } else if((result.insta_username && !bg) || (result.insta_username && !bg.username) || (result.insta_username && bg.username === ''))
+            } 
+            else if((result.insta_username && !bg) || (result.insta_username && !bg.username) || (result.insta_username && bg.username === ''))
             {
                 // means bg did not load
                 callFetchWith(result.insta_username);
-            } else {
+            } 
+            else {
                 setPopup();
                 callFetch();
             }
