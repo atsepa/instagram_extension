@@ -47,6 +47,10 @@ function checkIfFollowersCountChanged(newFollowersCount){
     });
 }
 
+function clearBadge() {
+    chrome.browserAction.setBadgeText({text: ''});
+}
+
 function saveFollowersCount(followersCount){
     chrome.storage.sync.set({ insta_followers_count: followersCount }, () => {});
 }
@@ -84,6 +88,9 @@ chrome.runtime.onMessage.addListener(
                 window.username = request.username;
                 window.profilePic = request.profilePic;
                 window.followersCount = request.followersCount;
+            break;
+            case 'clearBadge':
+                clearBadge();
             break;
             default:
                 console.log('DEFAULT');

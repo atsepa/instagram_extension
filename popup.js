@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 setPopup();
                 callFetch();
             }
+
+            clearBadge();
         });
     }
 
@@ -33,6 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.runtime.sendMessage({
             type: 'fetchDataWith',
             username: insta_username
+        });
+    }
+
+    function clearBadge(){
+        chrome.runtime.sendMessage({
+            type: 'clearBadge'
         });
     }
 
