@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setCountFromMemory();
         setUsernameFromMemory();
-        // setProfilePic();
+        setProfilePicFromMemory();
     }
 
     function callFetch() {
@@ -100,6 +100,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function setUsernameFromMemory () {
         chrome.storage.sync.get(['insta_username'], function (result) {
             document.getElementById('username').innerHTML = `<strong>${result.insta_username}<strong/>`;
+        });
+    }
+
+    function setProfilePicFromMemory () {
+        chrome.storage.sync.get(['insta_profile_pic'], function (result) {
+            document.getElementById('profile_pic').innerHTML = `<img src="${bg.profilePic}" />`;
         });
     }
 
