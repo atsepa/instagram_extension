@@ -1,97 +1,101 @@
 body {
-  background-color: rgb(239, 239, 239);
+	background-color: rgb(239, 239, 239);
 }
 
 .tempo {
-  width: 440px;
-  height: 280px;
+	width: 440px;
+	height: 280px;
 }
 
 .settings {
-  display: grid;
-  justify-content: center;
+	display: grid;
+	justify-content: center;
 }
 
 .logo {
-  background-color: rgb(96, 201, 152);
-  width: 440px;
-  height: 280px;
-  text-align: center;
+	background-color: rgb(96, 201, 152);
+	width: 440px;
+	height: 280px;
+	text-align: center;
 }
 
 .logo h1 {
-  padding-top: 94px;
-  font-size: 43px;
-  font-family: "Pacifico", cursive;
-  -webkit-text-stroke-color: white;
-  -webkit-text-fill-color: white;
+	padding-top: 94px;
+	font-size: 43px;
+	font-family: "Pacifico", cursive;
+	-webkit-text-stroke-color: white;
+	-webkit-text-fill-color: white;
 }
 
 h1 {
-  font-size: 35px;
-  color: rgb(96, 201, 152);
-  -webkit-text-stroke-width: 0.1px;
-  font-family: "Pacifico", cursive;
-  /* -webkit-text-stroke-color: black; */
-  -webkit-text-fill-color: rgb(96, 201, 152);
+	font-size: 35px;
+	color: rgb(96, 201, 152);
+	-webkit-text-stroke-width: 0.1px;
+	font-family: "Pacifico", cursive;
+	/* -webkit-text-stroke-color: black; */
+	-webkit-text-fill-color: rgb(96, 201, 152);
 }
 
 h3 {
-  text-align: center;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	font-family: "Pacifico", cursive;
 }
 
 input {
-  border: none;
-  font-size: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
+	border: none;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	padding-bottom: 10px;
 }
 
 .card {
-  width: 500px;
-  height: 150px;
-  display: grid;
-  background-color: white;
+	width: 500px;
+	height: 150px;
+	display: grid;
+	background-color: white;
 }
 
 .success-card {
-  margin-top: 10px;
-  width: 500px;
-  height: 50px;
-  display: grid;
-  border: 1px solid green;
-  background-color: rgba(30, 157, 30, 0.5);
+	margin-top: 10px;
+	width: 500px;
+	height: 50px;
+	display: grid;
+	border: 1px solid green;
+	background-color: rgba(30, 157, 30, 0.5);
 }
 
 .success-card h4 {
-  margin-top: 5px;
-  color: green;
-  font-size: 20px;
-  text-align: center;
-  font-family: "Pacifico", cursive;
+	margin-top: 5px;
+	color: green;
+	font-size: 20px;
+	text-align: center;
+	font-family: "Pacifico", cursive;
 }
 
 .error-card {
-  width: 500px;
-  height: 50px;
-  display: grid;
-  margin-top: 10px;
-  border: 1px solid red;
-  background-color: rgba(255, 0, 30, 0.5);
+	width: 500px;
+	height: 50px;
+	display: grid;
+	margin-top: 10px;
+	border: 1px solid red;
+	background-color: rgba(255, 0, 30, 0.5);
 }
 
 .error-card h4 {
-  color: red;
-  margin-top: 5px;
-  font-size: 20px;
-  text-align: center;
-  font-family: "Pacifico", cursive;
+	color: red;
+	margin-top: 5px;
+	font-size: 20px;
+	text-align: center;
+	font-family: "Pacifico", cursive;
 }
 
 button {
-  border: none;
-  color: white;
-  background-color: rgb(96, 201, 152);
+	border: none;
+	color: white;
+	background-color: rgb(96, 201, 152);
 }
